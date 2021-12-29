@@ -1,5 +1,6 @@
 # spring-security-signup-and-login
 스프링 시큐리티 회원가입과 로그인 실습
+튜토리얼: https://shinsunyoung.tistory.com/78
 
 ## 디펜던시
 
