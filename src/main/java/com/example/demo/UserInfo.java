@@ -1,35 +1,19 @@
 package com.example.demo;
 
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.*;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Entity
-@Getter
+@Data
 public class UserInfo implements UserDetails {
-
-    @Id
-    @Column(name = "code")
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long code;
-
-    @Column(name = "email", unique = true)
     private String email;
-
-    @Column(name = "password")
     private String password;
-
-    @Column(name = "auth")
     private String auth;
 
     @Builder
