@@ -3,6 +3,7 @@ package com.example.demo.security;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
@@ -22,5 +23,21 @@ public class UserService implements UserDetailsService {
     public UserInfo loadUserByUsername(String email) throws UsernameNotFoundException { // 시큐리티에서 지정한 서비스이기 때문에 이 메소드를 필수로 구현
         return userMapper.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException((email)));
+    }
+
+    /**
+     * 회원정보 저장
+     *
+     * @param infoDto 회원정보가 들어있는 DTO
+     * @return 저장되는 회원의 PK
+     */
+    public Long save(UserInfoDto infoDto) {
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        infoDto.setPassword(encoder.encode(infoDto.getPassword()));
+
+        return userMapper.save(UserInfo.builder()
+                .email(infoDto.getEmail())
+                .auth(infoDto.getAuth())
+                .password(infoDto.getPassword()).build()).getCode();
     }
 }
