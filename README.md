@@ -36,3 +36,8 @@ dependencies {
 }
 ```
 
+---
+
+## + 회원가입 메일보내고 인증키
+https://github.com/kyupid/spring-security-signup-and-login/pull/4
+
