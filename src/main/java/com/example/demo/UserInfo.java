@@ -15,6 +15,7 @@ public class UserInfo implements UserDetails {
     private String email;
     private String password;
     private String auth;
+    private String authKey;
 
     @Builder
     public UserInfo(String email, String password, String auth) {
@@ -72,5 +73,16 @@ public class UserInfo implements UserDetails {
     public boolean isEnabled() {
         // 계정이 사용 가능한지 확인하는 로직
         return true; // true -> 사용 가능
+    }
+
+    @Override
+    public String toString() {
+        return "UserInfo{" +
+                "code=" + code +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", auth='" + auth + '\'' +
+                ", authKey='" + authKey + '\'' +
+                '}';
     }
 }
