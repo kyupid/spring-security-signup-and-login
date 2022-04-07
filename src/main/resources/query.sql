@@ -13,6 +13,6 @@ create table user_info
 );
 
 insert into user_info (code, email, password, auth)
-VALUES (1, '1', '1', '1');
+VALUES (1, '1', '$2a$10$pUOkbjxQXSfHWO.ZFfQcXevGIyFxm01iiWZN1rjXMLzhFsUj7YZmW', 'ROLE_USER');
 
 
