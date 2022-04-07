@@ -12,3 +12,7 @@ create table user_info
         unique (email)
 );
 
+insert into user_info (code, email, password, auth)
+VALUES (1, '1', '1', '1');
+
+
