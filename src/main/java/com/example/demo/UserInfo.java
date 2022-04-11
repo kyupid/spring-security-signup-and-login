@@ -16,6 +16,7 @@ public class UserInfo implements UserDetails {
     private String password;
     private String auth;
     private String authKey;
+    private Boolean isAutologin;
 
     @Builder
     public UserInfo(String email, String password, String auth) {
