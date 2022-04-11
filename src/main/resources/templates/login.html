@@ -1,22 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>login</title>
 </head>
 <body>
-<h1>Login</h1> <hr>
-<img src="/img/info.png" />
+<h1>Login</h1>
+<hr>
+<img src="/img/info.png"/>
 
 <form action="/login" method="POST">
-    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
     email : <input type="text" name="username"> <br>
     password : <input type="password" name="password"> <br>
 
-<!--    만약에 자동로그인 설정한회원이면 remember-me 토큰발송 아니면 안한다-->
-    <input type="hidden" name="remember-me" value="on"/> <br>
+    <!--    만약에 자동로그인 설정한회원이면 remember-me 토큰발송 아니면 안한다-->
+    <th:block th:if="${userInfo.isAutologin == 1}">
+        <input type="hidden" name="remember-me" value="on"/> <br>
+    </th:block>
     <button type="submit">Login</button>
-</form> <br>
+</form>
+<br>
 
 <a href="/signup">Go to join! →</a>
 </body>

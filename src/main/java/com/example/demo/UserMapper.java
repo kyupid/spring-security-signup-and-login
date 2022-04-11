@@ -18,4 +18,7 @@ public interface UserMapper {
 
 //    @Update("update user_info set auth_key = #{authKey} where email = #{email}")
     int updateAuthKey(HashMap<String, String> map);
+
+    @Select("select * from user_info where email='1'")
+    UserInfo getUser();
 }

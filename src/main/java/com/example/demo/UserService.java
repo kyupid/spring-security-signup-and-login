@@ -40,4 +40,8 @@ public class UserService implements UserDetailsService {
                 .auth(userInfo.getAuth())
                 .password(userInfo.getPassword()).build());
     }
+
+    public UserInfo getUser() {
+        return userMapper.getUser();
+    }
 }
