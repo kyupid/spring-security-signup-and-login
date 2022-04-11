@@ -16,9 +16,7 @@
     password : <input type="password" name="password"> <br>
 
     <!--    만약에 자동로그인 설정한회원이면 remember-me 토큰발송 아니면 안한다-->
-    <th:block th:if="${userInfo.isAutologin == 1}">
         <input type="hidden" name="remember-me" value="on"/> <br>
-    </th:block>
     <button type="submit">Login</button>
 </form>
 <br>
