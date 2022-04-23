@@ -32,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter { // 2
                 .and()
 
                 .rememberMe()
-                .key("uniqueAndSecret")
+                .key("TEST")
                 .rememberMeParameter("remember-me")
                 .tokenValiditySeconds(86400 * 14)
                 .and()
